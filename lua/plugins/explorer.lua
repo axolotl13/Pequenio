@@ -8,8 +8,15 @@ local opts = {
   ignore_buffer_on_setup = false,
   update_cwd = true,
   respect_buf_cwd = true,
-  view = {width = 32, height = 30, mappings = {custom_only = false, list = {}}},
+  view = {
+    width = 32,
+    height = 30,
+    -- preserve_window_proportions = true,
+    mappings = {custom_only = false, list = {}}
+  },
   renderer = {
+    -- add_trailing = true,
+    highlight_opened_files = "icon",
     group_empty = true,
     highlight_git = true,
     root_folder_modifier = table.concat {":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??"},
@@ -71,6 +78,7 @@ local opts = {
     open_file = {
       quit_on_open = false,
       window_picker = {
+        -- enable = false,
         exclude = {
           filetype = {"notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", "toggleterm"},
           buftype = {"nofile", "terminal", "help"}
@@ -79,7 +87,8 @@ local opts = {
     },
     remove_file = {close_window = true}
   },
-  trash = {require_confirm = false}
+  trash = {require_confirm = false},
+  live_filter = {prefix = "Filtro: "}
 }
 
 nvimtree.setup(opts)
