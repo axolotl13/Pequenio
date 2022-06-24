@@ -7,6 +7,13 @@ local plugins = {
   -- Dependencies
   {"nvim-lua/plenary.nvim"},
   {"tweekmonster/startuptime.vim", cmd = "StartupTime"},
+  {
+    "kyazdani42/nvim-web-devicons",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("plugins.devicons")
+    end
+  },
   -- Plugins Manager
   {"wbthomason/packer.nvim"},
   -- Interfaz de Usuario
@@ -15,12 +22,6 @@ local plugins = {
     module = "vim",
     config = function()
       require("plugins.notify")
-    end
-  }, {
-    "kyazdani42/nvim-web-devicons",
-    after = "tokyonight.nvim",
-    config = function()
-      require("plugins.devicons")
     end
   }, {
     "folke/tokyonight.nvim",
@@ -60,12 +61,13 @@ local plugins = {
     config = function()
       require("plugins.neoscroll")
     end
-  }, {
-    "beauwilliams/focus.nvim",
-    config = function()
-      require("focus").setup({excluded_filetypes = {"toggleterm"}, signcolumn = false})
-    end
   },
+  -- {
+  --   "beauwilliams/focus.nvim",
+  --   config = function()
+  --     require("focus").setup({excluded_filetypes = {"toggleterm"}, signcolumn = false})
+  --   end
+  -- },
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
