@@ -5,19 +5,15 @@ local opts = {
   expandtab = true,
   shiftwidth = 2,
   smartindent = true,
-
   -- Opciones de Búsqueda
   smartcase = true,
-
   -- Opciones de Renderizado de Texto
   encoding = "utf-8",
   -- syntax = "enable",
   guifont = "Victor Mono:h15",
-
   -- Menu
   completeopt = "menuone,noselect",
   pumheight = 10,
-
   -- Interfaz de Usuario
   -- background = "dark",
   cursorcolumn = false,
@@ -33,7 +29,6 @@ local opts = {
   termguicolors = true,
   title = true,
   wrap = false,
-
   -- Misceláneas
   backup = false,
   -- conceallevel = 0,
@@ -51,7 +46,6 @@ local opts = {
   writebackup = false,
   whichwrap = "b,s,<,>,[,],h,l",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize",
-
   -- Opciones de Rendimiento
   -- redrawtime = 1500,
   timeoutlen = 300,
