@@ -12,7 +12,7 @@ local plugins = {
   -- Interfaz de Usuario
   {
     "rcarriga/nvim-notify",
-    after = "plenary.nvim",
+    module = "vim",
     config = function()
       require("plugins.notify")
     end
@@ -196,7 +196,7 @@ local plugins = {
     "mfussenegger/nvim-jdtls",
     after = "nvim-lspconfig"
     -- ft = "java"
-  }
+  },
   -- {
   --   "folke/which-key.nvim",
   --   event = "BufRead",
@@ -215,8 +215,10 @@ local plugins = {
   -- junegunn/vim-easy-align
   -- declancm/cinnamon.nvim
   -- petertriho/nvim-scrollbar
+-- lewis6991/satellite.nvim
   -- nvim-pack/nvim-spectre
   -- f3fora/cmp-spell
+  -- yamatsum/nvim-cursorline
   -- xiyaowong/nvim-cursorword
 }
 
