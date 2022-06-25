@@ -166,10 +166,10 @@ local plugins = {
   -- },
   {
     "ur4ltz/surround.nvim",
-    -- keys = { "ds", "ys", "cs" },
-    event = {"BufRead", "BufNewFile"},
+    keys = { "md", "ma", "mr" }, -- {ys, ds, cs}
+    -- event = {"BufRead", "BufNewFile"},
     config = function()
-      require("surround").setup({mappings_style = "surround"})
+      require("surround").setup({mappings_style = "sandwich", prefix = "m"})
     end
   }, {
     "akinsho/toggleterm.nvim",
