@@ -436,14 +436,8 @@ keymaps.register({
     rhs = "<cmd>SnipClose<cr>",
     options = {silent = true},
     desc = "Cerrar SnipRun"
-  }, -- Glow
-  {
-    mode = {"n"},
-    lhs = "<leader>md",
-    rhs = "<cmd>Glow<cr>",
-    options = {silent = true},
-    desc = "Iniciar Glow"
-  }, -- WhichKey
+  },
+  -- WhichKey
   {
     mode = {"n"},
     lhs = "<leader>wk",
