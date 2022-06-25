@@ -421,14 +421,7 @@ keymaps.register({
     rhs = "<cmd>Telescope projects<cr>",
     options = {silent = true},
     desc = "Buscar en proyectos"
-  }, -- Session
-  -- {
-  --   mode = { "n" },
-  --   lhs = "<leader>sz",
-  --   rhs = "<cmd>Telescope session-lens search_session<cr>",
-  --   options = { silent = true },
-  --   desc = "Buscar en sessiones"
-  -- }
+  },
   -- Auto Session
   {
     mode = {"n"},
