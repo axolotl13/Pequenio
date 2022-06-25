@@ -429,6 +429,14 @@ keymaps.register({
   --   options = { silent = true },
   --   desc = "Buscar en sessiones"
   -- }
+  -- Auto Session
+  {
+    mode = {"n"},
+    lhs = "<leader>ds",
+    rhs = "<cmd>DeleteSession<cr>",
+    options = {silent = true},
+    desc = "Elimar Session"
+  },
   -- SnipRun
   {
     mode = {"n"},
@@ -465,14 +473,14 @@ keymaps.register({
   -- }
 })
 
--- -- Move Buffers
+-- Move Buffers
 -- map("n", "<C-h>", "<C-w>h")
 -- map("n", "<C-l>", "<C-w>l")
 -- map("n", "<C-k>", "<C-w>k")
 -- map("n", "<C-j>", "<C-w>j")
 
--- -- Resize Buffers
--- -- map("n", "<C-UP>", "<C-w>-2")
--- -- map("n", "<C-DOWN>", "<C-w>+2")
--- -- map("n", "<C-LEFT>", "<C-w>>")
--- -- map("n", "<C-RIGHT>", "<C-w><")
+-- Resize Buffers
+-- map("n", "<C-UP>", "<C-w>-2")
+-- map("n", "<C-DOWN>", "<C-w>+2")
+-- map("n", "<C-LEFT>", "<C-w>>")
+-- map("n", "<C-RIGHT>", "<C-w><")
