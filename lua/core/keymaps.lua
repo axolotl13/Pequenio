@@ -157,10 +157,28 @@ keymaps.register({
   }, -- Terminal
   {
     mode = {"n"},
-    lhs = "<leader>tt",
+    lhs = "<C-t>",
     rhs = "<cmd>ToggleTerm<cr>",
     options = {silent = true},
     desc = "Iniciar Terminal"
+  }, {
+    mode = {"n"},
+    lhs = "<leader>tf",
+    rhs = "<cmd>ToggleTerm direction=float<cr>",
+    options = {silent = true},
+    desc = "Iniciar Terminal en una ventana flotante"
+  }, {
+    mode = {"n"},
+    lhs = "<leader>tt",
+    rhs = "<cmd>ToggleTerm direction=tab<cr>",
+    options = {silent = true},
+    desc = "Iniciar Terminal en una pestaña"
+  }, {
+    mode = {"n"},
+    lhs = "<A-t>",
+    rhs = "<cmd>ToggleTerm direction=vertical<cr>",
+    options = {silent = true},
+    desc = "Iniciar Terminal verticalmente"
   }, {
     mode = {"t"},
     lhs = "<esc>",
@@ -436,18 +454,17 @@ keymaps.register({
     rhs = "<cmd>SnipClose<cr>",
     options = {silent = true},
     desc = "Cerrar SnipRun"
-  },
-  -- WhichKey
-  {
-    mode = {"n"},
-    lhs = "<leader>wk",
-    rhs = "<cmd>WhichKey<cr>",
-    options = {silent = true},
-    desc = "Ver todos los atajos"
   }
+  -- WhichKey
+  -- {
+  --   mode = {"n"},
+  --   lhs = "<leader>wk",
+  --   rhs = "<cmd>WhichKey<cr>",
+  --   options = {silent = true},
+  --   desc = "Ver todos los atajos"
+  -- }
 })
 
--- return keymaps
 -- -- Move Buffers
 -- map("n", "<C-h>", "<C-w>h")
 -- map("n", "<C-l>", "<C-w>l")

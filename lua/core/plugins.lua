@@ -9,7 +9,7 @@ local plugins = {
   {"tweekmonster/startuptime.vim", cmd = "StartupTime"},
   {
     "kyazdani42/nvim-web-devicons",
-    event = { "BufRead", "BufNewFile" },
+    after = "tokyonight.nvim",
     config = function()
       require("plugins.devicons")
     end
@@ -175,19 +175,18 @@ local plugins = {
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     config = function()
-      require("toggleterm").setup({size = 10, direction = "horizontal"})
+      require("plugins.terminal")
     end
   }, {
     "norcalli/nvim-colorizer.lua",
-    opt = true,
     cmd = {"ColorizerToggle"},
     config = function()
-      require("colorizer").setup()
+      require("plugins.colorizer")
     end
   }, {
     "mg979/vim-visual-multi",
     keys = {"<C-n>", "<C-Down>", "<C-Up>", "<S-Left>", "<S-Right>"} -- , n, N, q, Q
-  }, {"ellisonleao/glow.nvim", branch = "main", ft = {"markdown"}}, {
+  }, {
     "michaelb/sniprun",
     run = "bash ./install.sh",
     cmd = "SnipRun",
