@@ -34,7 +34,7 @@ local opts = {
   -- conceallevel = 0,
   clipboard = "unnamedplus",
   hidden = true,
-  iskeyword ="@,48-57,_,192-255,-",
+  iskeyword = "@,48-57,_,192-255,-",
   splitbelow = true,
   splitright = true,
   -- spell = true,
@@ -45,17 +45,15 @@ local opts = {
   undofile = true,
   writebackup = false,
   whichwrap = "b,s,<,>,[,],h,l",
-  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize",
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal",
   -- Opciones de Rendimiento
   -- redrawtime = 1500,
   timeoutlen = 300,
   -- ttimeoutlen = 10,
-  updatetime = 100,
+  updatetime = 100
 }
 
 opt.shortmess:append("sI")
-opt.shortmess = opt.shortmess + { c = true }
+opt.shortmess = opt.shortmess + {c = true}
 
-for _, value in pairs(opts) do
-  opt[_] = value
-end
+for _, value in pairs(opts) do opt[_] = value end
