@@ -123,16 +123,15 @@ local plugins = {
       require("plugins.comment")
     end
   }, {
-    "ggandor/leap.nvim",
-    keys = {"s", "S"}, -- { "f", "F", "s", "S", "t", "T" },
+    "ggandor/lightspeed.nvim",
+    keys = {"f", "F", "s", "S", "t", "T"},
     config = function()
-      require("leap").set_default_keymaps()
+      require("lightspeed").setup({substitute_chars ={["\r"] = "¬"}})
     end
   },
   -- Recomendado
   {
     "nvim-telescope/telescope.nvim",
-    -- after = {"session-lens", "project.nvim"},
     cmd = "Telescope",
     config = function()
       require("plugins.telescope")
@@ -186,6 +185,7 @@ local plugins = {
     end
   }, {
     "mfussenegger/nvim-jdtls",
+    module = "jdtls",
     after = "nvim-lspconfig"
     -- ft = "java"
   },
