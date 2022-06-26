@@ -98,9 +98,12 @@ local plugins = {
     config = function()
       require("plugins.cmp")
     end
-  }, {"L3MON4D3/LuaSnip", wants = "friendly-snippets", after = "nvim-cmp"},
-  {"saadparwaiz1/cmp_luasnip", after = "LuaSnip"}, {"hrsh7th/cmp-nvim-lua", after = "cmp_luasnip"},
-  {"hrsh7th/cmp-nvim-lsp", after = "cmp-nvim-lua"}, {"hrsh7th/cmp-buffer", after = "cmp-nvim-lsp"},
+  },
+  {"L3MON4D3/LuaSnip", wants = "friendly-snippets", after = "nvim-cmp"},
+  {"saadparwaiz1/cmp_luasnip", after = "LuaSnip"},
+  {"hrsh7th/cmp-nvim-lua", after = "cmp_luasnip"},
+  {"hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp", after = "cmp-nvim-lua"},
+  {"hrsh7th/cmp-buffer", after = "cmp-nvim-lua"},
   {"hrsh7th/cmp-path", after = "cmp-buffer"}, {
     "windwp/nvim-autopairs",
     -- after = "nvim-cmp", after = "nvim-treesitter",
@@ -122,7 +125,7 @@ local plugins = {
     "ggandor/lightspeed.nvim",
     keys = {"f", "F", "s", "S", "t", "T"},
     config = function()
-      require("lightspeed").setup({substitute_chars = {["¬"] = "ñ"}})
+      require("lightspeed").setup({substitute_chars = {["/r"] = "¬"}})
     end
   },
   -- Recomendado

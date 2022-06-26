@@ -121,7 +121,7 @@ end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 -- cmp_nvim_lsp
--- M.capabilities = cmp.update_capabilities(M.capabilities)
+M.capabilities = cmp.update_capabilities(M.capabilities)
 -- Provicional Solucion C++
 M.capabilities.offsetEncoding = {"utf-16"}
 
