@@ -16,7 +16,13 @@ M.diagnostics = function()
     signs = true,
     update_in_insert = false,
     underline = true,
-    severity_sort = true
+    severity_sort = true,
+    float = {
+      focusable = true,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+    }
   }
 
   vim.diagnostic.config(opts)
@@ -99,7 +105,13 @@ M.maps = function(bufnr)
       lhs = "<leader>ff",
       rhs = vim.lsp.buf.formatting_sync,
       options = {silent = true, buffer = bufnr},
-      desc = "formatting_sync"
+      desc = "Formatear Código"
+    }, {
+      mode = {"x"},
+      lhs = "<leader>ff",
+      rhs = vim.lsp.buf.range_formatting,
+      options = {silent = true, buffer = bufnr},
+      desc = "Formatear Código"
     }, {
       mode = {"n"},
       lhs = "gs",
