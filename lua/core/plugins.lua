@@ -5,9 +5,7 @@ local plugins = {
   -- Optimizar
   {"lewis6991/impatient.nvim"},
   -- Dependencies
-  {"nvim-lua/plenary.nvim"},
-  {"tweekmonster/startuptime.vim", cmd = "StartupTime"},
-  {
+  {"nvim-lua/plenary.nvim"}, {"tweekmonster/startuptime.vim", cmd = "StartupTime"}, {
     "kyazdani42/nvim-web-devicons",
     after = "tokyonight.nvim",
     config = function()
@@ -61,8 +59,7 @@ local plugins = {
     config = function()
       require("plugins.neoscroll")
     end
-  },
-  -- {
+  }, -- {
   --   "beauwilliams/focus.nvim",
   --   config = function()
   --     require("focus").setup({excluded_filetypes = {"toggleterm"}, signcolumn = false})
@@ -79,8 +76,7 @@ local plugins = {
     end
   }, {"nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter"},
   {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
-  {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
-  -- LSP
+  {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"}, -- LSP
   {
     "neovim/nvim-lspconfig",
     after = "lsp_signature.nvim",
@@ -107,7 +103,8 @@ local plugins = {
   {"hrsh7th/cmp-nvim-lsp", after = "cmp-nvim-lua"}, {"hrsh7th/cmp-buffer", after = "cmp-nvim-lsp"},
   {"hrsh7th/cmp-path", after = "cmp-buffer"}, {
     "windwp/nvim-autopairs",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp", after = "nvim-treesitter",
+    keys = {{"i", "("}, {"i", "["}, {"i", "{"}, {"i", "'"}, {"i", '"'}},
     config = function()
       require("plugins.autopairs")
     end
@@ -117,8 +114,7 @@ local plugins = {
     ft = {"html", "javascriptreact", "typescriptreact", "tsx", "jsx", "xml", "php", "markdown"}
   }, {
     "numToStr/Comment.nvim",
-    after = "nvim-ts-context-commentstring",
-    keys = {"gc", "gb"},
+    keys = {{"n", "gcc"}, {"n", "gbc"}, {"v", "gc"}, {"v", "gb"}},
     config = function()
       require("plugins.comment")
     end
@@ -126,7 +122,7 @@ local plugins = {
     "ggandor/lightspeed.nvim",
     keys = {"f", "F", "s", "S", "t", "T"},
     config = function()
-      require("lightspeed").setup({substitute_chars ={["\r"] = "¬"}})
+      require("lightspeed").setup({substitute_chars = {["¬"] = "ñ"}})
     end
   },
   -- Recomendado
@@ -156,7 +152,7 @@ local plugins = {
     end
   }, {
     "ur4ltz/surround.nvim",
-    keys = { "md", "ma", "mr" }, -- {ys, ds, cs}
+    keys = {"md", "ma", "mr"}, -- {ys, ds, cs}
     -- event = {"BufRead", "BufNewFile"},
     config = function()
       require("surround").setup({mappings_style = "sandwich", prefix = "m"})
@@ -188,7 +184,7 @@ local plugins = {
     module = "jdtls",
     after = "nvim-lspconfig"
     -- ft = "java"
-  },
+  }
   -- {
   --   "folke/which-key.nvim",
   --   event = "BufRead",
