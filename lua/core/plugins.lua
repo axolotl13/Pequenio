@@ -87,19 +87,19 @@ local plugins = {
     config = function()
       require("plugins.lspconfig").start()
     end
-  },
-  {
+  }, {
     "williamboman/nvim-lsp-installer",
     event = {"BufRead", "BufNewFile"}
-  },
-  {
+  }, {
+    "ray-x/lsp_signature.nvim",
+    after = "nvim-lspconfig"
+  }, {
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lsp-installer",
     config = function()
       require("plugins.nulls")
     end
-  },
-  {
+  }, {
     "SmiteshP/nvim-navic", module = "nvim-navic"
   },
   -- Autocomplete
@@ -223,6 +223,7 @@ local plugins = {
   -- yamatsum/nvim-cursorline
   -- xiyaowong/nvim-cursorword
   -- vim-treesitter-textobjects
+  -- sindrets/diffview.nvim
 }
 
 packer.start(plugins)

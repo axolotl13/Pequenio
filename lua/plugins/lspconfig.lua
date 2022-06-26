@@ -50,6 +50,19 @@ M.navic = function(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+  local ok, signature = pcall(require, "lsp_signature")
+  if not ok then return end
+
+  signature.on_attach({
+    bind = true,
+      handler_opts = {
+        border = "rounded"
+    },
+    floating_window = true,
+    floating_window_above_cur_line = true,
+    floating_window_off_x = 20,
+    floating_window_off_y = -1
+  }, bufnr)
 
   M.navic(client, bufnr)
 
