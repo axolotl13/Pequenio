@@ -139,7 +139,7 @@ local plugins = {
     end
   }, {
     "lewis6991/gitsigns.nvim",
-    event = "BufRead",
+    event = {"BufRead", "BufNewFile"},
     config = function()
       require("plugins.gitsigns")
     end
@@ -147,7 +147,7 @@ local plugins = {
     "ahmedkhalf/project.nvim",
     event = "BufWinEnter",
     config = function()
-      require("project_nvim").setup({detection_methods = {"lsp", "pattern"}})
+      require("project_nvim").setup()
     end
   }, {
     "rmagatti/auto-session",
@@ -155,16 +155,7 @@ local plugins = {
     config = function()
       require("plugins.session")
     end
-  }, -- {
-  --   "rmagatti/session-lens",
-  --   after = "auto-session",
-  --   config = function()
-  --     require("session-lens").setup({
-  --       path_display = {"shorten"},
-  --     })
-  --   end
-  -- },
-  {
+  }, {
     "ur4ltz/surround.nvim",
     keys = { "md", "ma", "mr" }, -- {ys, ds, cs}
     -- event = {"BufRead", "BufNewFile"},
@@ -216,7 +207,7 @@ local plugins = {
   -- junegunn/vim-easy-align
   -- declancm/cinnamon.nvim
   -- petertriho/nvim-scrollbar
--- lewis6991/satellite.nvim
+  -- lewis6991/satellite.nvim
   -- nvim-pack/nvim-spectre
   -- f3fora/cmp-spell
   -- yamatsum/nvim-cursorline
