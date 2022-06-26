@@ -93,9 +93,6 @@ local plugins = {
     event = {"BufRead", "BufNewFile"}
   },
   {
-    "ray-x/lsp_signature.nvim", after = "nvim-lspconfig"
-  },
-  {
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lsp-installer",
     config = function()
@@ -211,7 +208,7 @@ local plugins = {
   -- },
   -- test
   -- mattn/emmet-vim
-  -- "abecodes/tabout.nvim",
+  -- abecodes/tabout.nvim,
   -- goolord/alpha-nvim
   -- tpope/vim-fugitive
   -- tzachar/cmp-tabnine
@@ -225,6 +222,7 @@ local plugins = {
   -- f3fora/cmp-spell
   -- yamatsum/nvim-cursorline
   -- xiyaowong/nvim-cursorword
+  -- vim-treesitter-textobjects
 }
 
 packer.start(plugins)

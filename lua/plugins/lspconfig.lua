@@ -34,17 +34,6 @@ M.diagnostics = function()
   end
 end
 
--- M.lsp_signature = function ()
---   local opts = {
---     bind = true,
---     floating_window = true,
---     handler_opts = {
---       border = "rounded"
---     }
---   }
---   lsp_signature.setup(opts)
--- end
-
 M.navic = function(client, bufnr)
   local ok, navic = pcall(require, "nvim-navic")
   if not ok then return end
@@ -55,12 +44,8 @@ M.navic = function(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  local ok, signature = pcall(require, "lsp_signature")
-  if not ok then return end
 
   M.navic(client, bufnr)
-
-  signature.on_attach(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -115,6 +100,12 @@ M.maps = function(bufnr)
       rhs = vim.lsp.buf.formatting_sync,
       options = {silent = true, buffer = bufnr},
       desc = "formatting_sync"
+    }, {
+      mode = {"n"},
+      lhs = "gs",
+      rhs = vim.lsp.buf.signature_help,
+      options = {silent = true, buffer = bufnr},
+      desc = "Ir a Referencias"
     }
   })
 end
