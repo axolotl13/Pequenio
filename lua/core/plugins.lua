@@ -5,7 +5,9 @@ local plugins = {
   -- Optimizar
   {"lewis6991/impatient.nvim"},
   -- Dependencies
-  {"nvim-lua/plenary.nvim"}, {"tweekmonster/startuptime.vim", cmd = "StartupTime"}, {
+  {"nvim-lua/plenary.nvim"},
+  {"tweekmonster/startuptime.vim", cmd = "StartupTime"},
+  {
     "kyazdani42/nvim-web-devicons",
     after = "tokyonight.nvim",
     config = function()
@@ -43,7 +45,7 @@ local plugins = {
     end
   }, {
     "rebelot/heirline.nvim",
-    after = {"nvim-web-devicons", "nvim-lspconfig"},
+    after = {"nvim-lspconfig","nvim-web-devicons"},
     config = function()
       require("plugins.statusline")
     end
@@ -76,21 +78,33 @@ local plugins = {
     end
   }, {"nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter"},
   {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
-  {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"}, -- LSP
+  {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+  -- LSP
   {
     "neovim/nvim-lspconfig",
-    after = "lsp_signature.nvim",
+    module = "lspconfig",
+    after = "null-ls.nvim",
     config = function()
       require("plugins.lspconfig").start()
     end
-  }, {"williamboman/nvim-lsp-installer", after = "plenary.nvim"},
-  {"ray-x/lsp_signature.nvim", after = "nvim-lsp-installer"}, {
+  },
+  {
+    "williamboman/nvim-lsp-installer",
+    event = {"BufRead", "BufNewFile"}
+  },
+  {
+    "ray-x/lsp_signature.nvim", after = "nvim-lspconfig"
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
-    after = "nvim-lspconfig",
+    after = "nvim-lsp-installer",
     config = function()
       require("plugins.nulls")
     end
-  }, {"SmiteshP/nvim-navic", after = "nvim-lsp-installer"},
+  },
+  {
+    "SmiteshP/nvim-navic", module = "nvim-navic"
+  },
   -- Autocomplete
   {"rafamadriz/friendly-snippets", event = "InsertEnter"}, {
     "hrsh7th/nvim-cmp",
@@ -185,7 +199,7 @@ local plugins = {
   }, {
     "mfussenegger/nvim-jdtls",
     module = "jdtls",
-    after = "nvim-lspconfig"
+    -- after = "nvim-lspconfig"
     -- ft = "java"
   }
   -- {
