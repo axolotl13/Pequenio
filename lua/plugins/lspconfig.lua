@@ -113,8 +113,6 @@ end
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 -- cmp_nvim_lsp
 M.capabilities = cmp.update_capabilities(M.capabilities)
--- Provicional Solucion C++
-M.capabilities.offsetEncoding = {"utf-16"}
 
 M.capabilities.textDocument.completion.completionItem = {
   -- documentationFormat = { "markdown", "plaintext" },
@@ -174,6 +172,11 @@ M.start = function()
       capabilities = M.capabilities,
       flags = {debounce_text_changes = 150}
     }
+    if server.name == "clangd" then
+      local clangd_opts = require("lsp.clangd")
+      opts = extend("force", clangd_opts, opts)
+    end
+
     if server.name == "sqlls" then
       local sqlls_opts = require("lsp.sqlls")
       opts = extend("force", sqlls_opts, opts)
