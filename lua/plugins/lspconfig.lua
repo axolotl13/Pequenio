@@ -140,7 +140,6 @@ end
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 -- cmp_nvim_lsp
 M.capabilities = cmp.update_capabilities(M.capabilities)
-
 M.capabilities.textDocument.completion.completionItem = {
   -- documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true
