@@ -113,13 +113,15 @@ M.maps = function(bufnr)
       rhs = vim.lsp.buf.references,
       options = {silent = true, buffer = bufnr},
       desc = "Ir a Referencias"
-    }, {
-      mode = {"n"},
-      lhs = "<leader>ff",
-      rhs = vim.lsp.buf.formatting_sync,
-      options = {silent = true, buffer = bufnr},
-      desc = "Formatear Código"
-    }, {
+    },
+    -- {
+    --   mode = {"n"},
+    --   lhs = "<leader>ff",
+    --   rhs = vim.lsp.buf.formatting_sync,
+    --   options = {silent = true, buffer = bufnr},
+    --   desc = "Formatear Código"
+    -- },
+    {
       mode = {"x"},
       lhs = "<leader>ff",
       rhs = vim.lsp.buf.range_formatting,
