@@ -33,6 +33,7 @@ local opts = {
   backup = false,
   -- conceallevel = 0,
   clipboard = "unnamedplus",
+  laststatus = 3,
   hidden = true,
   iskeyword = "@,48-57,_,192-255,-",
   splitbelow = true,
