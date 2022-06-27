@@ -27,7 +27,7 @@ local plugins = {
     "folke/tokyonight.nvim",
     after = "plenary.nvim",
     config = function()
-      vim.g.tokyonight_style = "night"
+      vim.g.tokyonight_style = "storm"
       vim.g.tokyonight_sidebars = {"qf", "vista_kind", "packer"}
       vim.cmd [[colorscheme tokyonight]]
     end
@@ -45,13 +45,13 @@ local plugins = {
     end
   }, {
     "rebelot/heirline.nvim",
-    after = {"nvim-lspconfig","nvim-web-devicons"},
+    after = {"nvim-web-devicons", "nvim-lspconfig"},
     config = function()
       require("plugins.statusline")
     end
   }, {
     "lukas-reineke/indent-blankline.nvim",
-    after = "nvim-web-devicons",
+    after = {"nvim-treesitter", "nvim-web-devicons"},
     config = function()
       require("plugins.indentline")
     end
@@ -61,17 +61,20 @@ local plugins = {
     config = function()
       require("plugins.neoscroll")
     end
-  }, -- {
-  --   "beauwilliams/focus.nvim",
-  --   config = function()
-  --     require("focus").setup({excluded_filetypes = {"toggleterm"}, signcolumn = false})
-  --   end
-  -- },
+  }, {
+    "beauwilliams/focus.nvim",
+    event = {"BufRead", "BufNewFile"},
+    config = function()
+      require("focus").setup({
+        excluded_filetypes = {"toggleterm"},
+        signcolumn = false
+      })
+    end
+  },
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    module = "nvim-treesitter",
-    -- event = { "BufRead", "BufNewFile" },
+    event = { "BufRead", "BufNewFile" },
     run = ":TSUpdate",
     config = function()
       require("plugins.treesitter")
@@ -136,7 +139,7 @@ local plugins = {
     "ggandor/lightspeed.nvim",
     keys = {"f", "F", "s", "S", "t", "T"},
     config = function()
-      require("lightspeed").setup({substitute_chars = {["/r"] = "¬"}})
+      require("lightspeed").setup({substitute_chars = {["\r"] = "ñ"}}) -- Enter
     end
   },
   -- Recomendado
@@ -195,10 +198,21 @@ local plugins = {
     end
   }, {
     "mfussenegger/nvim-jdtls",
-    module = "jdtls",
-    -- after = "nvim-lspconfig"
-    -- ft = "java"
+    module = "jdtls"
+  }, {
+    "sindrets/diffview.nvim",
+    cmd = {"DiffviewFileHistory", "DiffviewOpen", "DiffviewClose"},
+    config = function()
+      require("plugins.diffview")
+    end
   }
+  -- {
+  --   "lewis6991/satellite.nvim",
+  --   event = {"BufRead", "BufNewFile"},
+  --   config = function()
+  --     require("satellite").setup()
+  --   end
+  -- }
   -- {
   --   "folke/which-key.nvim",
   --   event = "BufRead",
@@ -212,18 +226,13 @@ local plugins = {
   -- goolord/alpha-nvim
   -- tpope/vim-fugitive
   -- tzachar/cmp-tabnine
-  -- github/copilot.vim
-  -- lewis6991/spellsitter.nvim
   -- junegunn/vim-easy-align
   -- declancm/cinnamon.nvim
-  -- petertriho/nvim-scrollbar
-  -- lewis6991/satellite.nvim
   -- nvim-pack/nvim-spectre
-  -- f3fora/cmp-spell
-  -- yamatsum/nvim-cursorline
   -- xiyaowong/nvim-cursorword
   -- vim-treesitter-textobjects
   -- sindrets/diffview.nvim
+  -- LudoPinelli/comment-box.nvim
 }
 
 packer.start(plugins)

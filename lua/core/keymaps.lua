@@ -285,13 +285,13 @@ keymaps.register({
     desc = "Previsualizar cambios que se han hecho"
   }, {
     mode = {"n"},
-    lhs = "<leader>gj",
+    lhs = "<leader>g{",
     rhs = "<cmd>Gitsigns next_hunk<cr>",
     options = {silent = true},
     desc = "Moverse hacía el siguiente cambio que se ha realizado"
   }, {
     mode = {"n"},
-    lhs = "<leader>gk",
+    lhs = "<leader>g}",
     rhs = "<cmd>Gitsigns prev_hunk<cr>",
     options = {silent = true},
     desc = "Moverse hacía el anterior cambio que se ha realizado"
@@ -324,7 +324,7 @@ keymaps.register({
     desc = "Diagnosticos Flotantes"
   }, {
     mode = {"n"},
-    lhs = "g}",
+    lhs = "<leader>}",
     rhs = function()
       vim.diagnostic.goto_prev()
     end,
@@ -332,7 +332,7 @@ keymaps.register({
     desc = "Ir al interior error LSP"
   }, {
     mode = {"n"},
-    lhs = "g{",
+    lhs = "<leader>{",
     rhs = function()
       vim.diagnostic.goto_next()
     end,
@@ -345,7 +345,7 @@ keymaps.register({
       vim.diagnostic.setloclist()
     end,
     options = {silent = true},
-    desc = ""
+    desc = "Diagnostica errores en una pestaña abajo"
   }, -- Telescope
   {
     mode = {"n"},
@@ -455,6 +455,32 @@ keymaps.register({
     rhs = "<cmd>SnipClose<cr>",
     options = {silent = true},
     desc = "Cerrar SnipRun"
+  },
+  -- Diffview
+  {
+    mode = {"n"},
+    lhs = "<leader>do",
+    rhs = "<cmd>DiffviewOpen<cr>",
+    options = {silent = true},
+    desc = "Abre DiffviewOpen"
+  }, {
+    mode = {"n"},
+    lhs = "<leader>dq",
+    rhs = "<cmd>DiffviewClose<cr>",
+    options = {silent = true},
+    desc = "Cierra Diffview"
+  }, {
+    mode = {"n"},
+    lhs = "<leader>dh",
+    rhs = "<cmd>DiffviewFileHistory<cr>",
+    options = {silent = true},
+    desc = "Abre DiffviewFileHistory"
+  }, {
+    mode = {"n"},
+    lhs = "<leader>de",
+    rhs = "<cmd>DiffviewToggleFiles<cr>",
+    options = {silent = true},
+    desc = "DiffviewToggleFiles"
   }
   -- WhichKey
   -- {
