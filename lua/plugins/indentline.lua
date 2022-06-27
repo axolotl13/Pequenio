@@ -11,7 +11,9 @@ local opts = {
   show_trailing_blankline_indent = false,
   -- show_end_of_line = true,
   use_treesitter = true,
-  buftype_exclude = {"terminal", "help", "packes", "TelescopePrompt", "TelescopeResults"},
+  buftype_exclude = {
+    "terminal", "help", "packes", "TelescopePrompt", "TelescopeResults", "DiffviewOpen"
+  },
   filetype_exclude = {
     "alpha", "help", "terminal", "packer", "sh", "markdown", "md", "txt", "css", "lsp-installer",
     "lspinfo"
