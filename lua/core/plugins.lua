@@ -27,7 +27,7 @@ local plugins = {
     "folke/tokyonight.nvim",
     after = "plenary.nvim",
     config = function()
-      vim.g.tokyonight_style = "storm"
+      vim.g.tokyonight_style = "night"
       vim.g.tokyonight_sidebars = {"qf", "vista_kind", "packer"}
       vim.cmd [[colorscheme tokyonight]]
     end
@@ -55,7 +55,7 @@ local plugins = {
     config = function()
       require("plugins.indentline")
     end
-  }, {
+  }, --[[ {
     "karb94/neoscroll.nvim",
     event = {"BufRead", "BufNewFile"},
     config = function()
@@ -70,7 +70,7 @@ local plugins = {
         signcolumn = false
       })
     end
-  },
+  }, ]]
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -231,7 +231,6 @@ local plugins = {
   -- nvim-pack/nvim-spectre
   -- xiyaowong/nvim-cursorword
   -- vim-treesitter-textobjects
-  -- sindrets/diffview.nvim
   -- LudoPinelli/comment-box.nvim
 }
 
