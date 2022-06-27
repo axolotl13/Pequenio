@@ -14,10 +14,10 @@ local cmp, luasnip, icons = l[1], l[3], l[5]
 --              :match "%s" == nil
 -- end
 
-local border = function(hl_name)
+local border = function(hl)
   return {
-    {"╭", hl_name}, {"─", hl_name}, {"╮", hl_name}, {"│", hl_name}, {"╯", hl_name},
-    {"─", hl_name}, {"╰", hl_name}, {"│", hl_name}
+    {"╭", hl}, {"─", hl}, {"╮", hl}, {"│", hl}, {"╯", hl}, {"─", hl}, {"╰", hl},
+    {"│", hl}
   }
 end
 
