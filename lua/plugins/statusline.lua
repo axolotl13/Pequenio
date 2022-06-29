@@ -38,7 +38,7 @@ local Git = {
                            or self.status_dict.changed ~= 0
   end,
   hl = {fg = colors.orange, bg = colors.black},
-  {provider = icons.separator.block, hl = {fg = colors.dark}},
+  Space,
   {
     provider = function(self)
       return icons.git.unmerged .. " " .. self.status_dict.head
@@ -72,8 +72,8 @@ local Git = {
     end,
     hl = {fg = colors.change}
   },
-  -- {provider = " "},
-  {provider = icons.separator.slant_right2, hl = {bg = colors.dark, fg = colors.black}}
+  Space,
+  {provider = icons.separator.right_fill, hl = {bg = colors.bg, fg = colors.black}}
 }
 
 local FileNameBlock = {
@@ -81,7 +81,7 @@ local FileNameBlock = {
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
 
-  hl = {bg = colors.dark},
+  hl = {bg = colors.bg},
   Space
 }
 
@@ -138,8 +138,8 @@ local FileNameModifer = {
 
 FileNameBlock = utils.insert(FileNameBlock, FileIcon, utils.insert(FileNameModifer, FileName),
                              unpack(FileFlags), {
-  provider = icons.separator.slant_right2,
-  hl = {fg = colors.dark, bg = colors.black}
+  provider = icons.separator.right_fill,
+  hl = {fg = colors.bg, bg = colors.dark}
 })
 
 local Diagnostics = {
@@ -161,7 +161,7 @@ local Diagnostics = {
 
   update = {"DiagnosticChanged", "BufEnter"},
 
-  hl = {bg = colors.black},
+  hl = {bg = colors.dark},
   Space,
   {
     provider = function(self)
@@ -187,8 +187,8 @@ local Diagnostics = {
     end,
     hl = {fg = colors.add}
   },
-  Space,
-  {provider = icons.separator.slant_right2, hl = {fg = colors.black, bg = colors.dark}}
+  Space
+  -- {provider = icons.separator.right_fill, hl = {fg = colors.black, bg = colors.dark}}
 }
 
 local lsp_names = {["null-ls"] = "ok", sumneko_lua = "sumneko"}
@@ -205,7 +205,7 @@ local lsp_client_names = function()
 end
 
 local LSPActive = {
-  hl = {fg = colors.magenta, bold = true},
+  hl = {fg = colors.add, bold = true},
   condition = conditions.lsp_attached,
   provider = function()
     return icons.statusline.lsp_client .. " " .. lsp_client_names()
@@ -223,14 +223,14 @@ local FileType = {
 local Shiftab = {
   hl = {fg = colors.comment},
   provider = function()
-    return "sp " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
   Space
 }
 
 local FileFormat = {
   hl = {fg = colors.fg, bg = colors.darker},
-  {provider = icons.separator.slant_right, hl = {fg = colors.dark, bg = colors.darker}},
+  {provider = icons.separator.left_fill, hl = {fg = colors.darker, bg = colors.dark}},
   Space,
   {provider = vim.bo.fileformat, hl = {bg = colors.darker, bold = true}},
   Space
@@ -238,7 +238,7 @@ local FileFormat = {
 
 local FileEncoding = {
   hl = {fg = colors.fg, bg = colors.bg},
-  {provider = icons.separator.slant_right, hl = {fg = colors.darker, bg = colors.bg}},
+  {provider = icons.separator.left_fill, hl = {fg = colors.bg, bg = colors.darker}},
   Space,
   {
     provider = function()
@@ -251,7 +251,7 @@ local FileEncoding = {
 
 local Ruler = {
   hl = {fg = colors.fg, bg = colors.black},
-  {provider = icons.separator.slant_right, hl = {fg = colors.bg, bg = colors.black}},
+  {provider = icons.separator.left_fill, hl = {fg = colors.black, bg = colors.bg}},
   {provider = " " .. icons.statusline.line_number .. " %2l:%3L:%2c"},
   Space
 }
