@@ -69,7 +69,7 @@ local opts = {
   filters = {
     dotfiles = false,
     custom = {".git", "node_modules", ".cache"},
-    exclude = {".gitignore", "gitsigns"}
+    exclude = {".gitignore", "gitsigns", ".pending.lua"}
   },
   git = {enable = true, ignore = true, timeout = 500},
   actions = {
