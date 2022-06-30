@@ -27,7 +27,7 @@ local plugins = {
     "folke/tokyonight.nvim",
     after = "plenary.nvim",
     config = function()
-      vim.g.tokyonight_style = "night"
+      vim.g.tokyonight_style = "storm"
       vim.g.tokyonight_sidebars = {"qf", "vista_kind", "packer"}
       vim.cmd [[colorscheme tokyonight]]
     end
@@ -55,27 +55,12 @@ local plugins = {
     config = function()
       require("plugins.indentline")
     end
-  }, --[[ {
-    "karb94/neoscroll.nvim",
-    event = {"BufRead", "BufNewFile"},
-    config = function()
-      require("plugins.neoscroll")
-    end
-  }, {
-    "beauwilliams/focus.nvim",
-    event = {"BufRead", "BufNewFile"},
-    config = function()
-      require("focus").setup({
-        excluded_filetypes = {"toggleterm"},
-        signcolumn = false
-      })
-    end
-  }, ]]
+  },
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile" },
     run = ":TSUpdate",
+    event = { "BufRead", "BufNewFile" },
     config = function()
       require("plugins.treesitter")
     end
@@ -206,32 +191,6 @@ local plugins = {
       require("plugins.diffview")
     end
   }
-  -- {
-  --   "lewis6991/satellite.nvim",
-  --   event = {"BufRead", "BufNewFile"},
-  --   config = function()
-  --     require("satellite").setup()
-  --   end
-  -- }
-  -- {
-  --   "folke/which-key.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("which-key").setup()
-  --   end
-  -- },
-  -- test
-  -- mattn/emmet-vim
-  -- abecodes/tabout.nvim,
-  -- goolord/alpha-nvim
-  -- tpope/vim-fugitive
-  -- tzachar/cmp-tabnine
-  -- junegunn/vim-easy-align
-  -- declancm/cinnamon.nvim
-  -- nvim-pack/nvim-spectre
-  -- xiyaowong/nvim-cursorword
-  -- vim-treesitter-textobjects
-  -- LudoPinelli/comment-box.nvim
 }
 
 packer.start(plugins)
