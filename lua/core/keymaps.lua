@@ -22,6 +22,12 @@ keymaps.register({
     desc = "Mover Cursor al inicio"
   }, {
     mode = {"i"},
+    lhs = "<s-tab>",
+    rhs = "<cmd>call search('[([{<]')<cr>",
+    options = {silent = true},
+    desc = "Mover cursor al siguiente pair"
+  }, {
+    mode = {"i"},
     lhs = "<C-e>",
     rhs = "<End>",
     options = {silent = true},
@@ -86,6 +92,34 @@ keymaps.register({
   }, -- Indent
   {mode = {"v"}, lhs = "<", rhs = "<gv", options = {silent = true}, desc = ""},
   {mode = {"v"}, lhs = ">", rhs = ">gv", options = {silent = true}, desc = ""},
+  {
+    mode = {"n"},
+    lhs = "<c-h>",
+    rhs = "<c-w>h",
+    options = {silent = true},
+    desc = "Mover vista hacía la izquierda"
+  },
+  {
+    mode = {"n"},
+    lhs = "<c-l>",
+    rhs = "<c-w>l",
+    options = {silent = true},
+    desc = "Mover vista hacía la derecha"
+  },
+  {
+    mode = {"n"},
+    lhs = "<c-k>",
+    rhs = "<c-w>k",
+    options = {silent = true},
+    desc = "Mover vista hacía arriba"
+  },
+  {
+    mode = {"n"},
+    lhs = "<c-j>",
+    rhs = "<c-w>j",
+    options = {silent = true},
+    desc = "Mover vista hacía abajo"
+  },
   -- Buffers Navigation
   {
     mode = {"n"},
@@ -268,7 +302,7 @@ keymaps.register({
   }, {
     mode = {"n"},
     lhs = "<leader>gw",
-    rhs = "<cmd>Gitsigns stage_hunk<cr>",
+    rhs = "<cmd>Gitsigns stage_buffer<cr>",
     options = {silent = true},
     desc = "Asignar cambios git"
   }, {
@@ -324,7 +358,7 @@ keymaps.register({
     desc = "Diagnosticos Flotantes"
   }, {
     mode = {"n"},
-    lhs = "<leader>}",
+    lhs = "<leader>{",
     rhs = function()
       vim.diagnostic.goto_prev()
     end,
@@ -332,7 +366,7 @@ keymaps.register({
     desc = "Ir al interior error LSP"
   }, {
     mode = {"n"},
-    lhs = "<leader>{",
+    lhs = "<leader>}",
     rhs = function()
       vim.diagnostic.goto_next()
     end,
@@ -491,15 +525,3 @@ keymaps.register({
   --   desc = "Ver todos los atajos"
   -- }
 })
-
--- Move Buffers
--- map("n", "<C-h>", "<C-w>h")
--- map("n", "<C-l>", "<C-w>l")
--- map("n", "<C-k>", "<C-w>k")
--- map("n", "<C-j>", "<C-w>j")
-
--- Resize Buffers
--- map("n", "<C-UP>", "<C-w>-2")
--- map("n", "<C-DOWN>", "<C-w>+2")
--- map("n", "<C-LEFT>", "<C-w>>")
--- map("n", "<C-RIGHT>", "<C-w><")
